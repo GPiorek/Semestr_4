@@ -1,38 +1,46 @@
 <?php
+error_reporting(0);
 //Zad 1 - Tablica owoców
-$fruits = array("Orange", "Pomegranate", "Banana");
+echo "Flipped array\n";
 
-foreach ($fruits as $fruit) {
-    $firstLetter = $fruit[0];
-    if ($firstLetter === "P") {
-        echo "First letter of " . $fruit . " is P";
+fruits();
+function fruits()
+{
+    $fruits = array("Orange", "Pomegranate", "Banana");
+
+
+    foreach ($fruits as $fruit) {
+        $firstLetter = $fruit[0];
+        if ($firstLetter === "P") {
+            echo "First letter of " . $fruit . " is P\n";
+        }
+        $i = 0;
+        $length = 0;
+        while (true) {
+            if ($fruit[$i] != "") {
+                $length++;
+                $i++;
+            }
+            if ($fruit[$i] == "") {
+                break;
+            }
+        }
+        $k = $length - 1;
+        $flippedFruit = "";
+        while (true) {
+            if ($fruit[$k] != "") {
+                $flippedFruit .= $fruit[$k];
+                $k--;
+            }
+            if ($k == -1) {
+                $flippedFruits[] = $flippedFruit;
+                break;
+            }
+        }
     }
-    $firstLetter;
-    $i = 0;
-    $length = 0;
-    while (true) {          // Sprawdzanie długości
-        if ($fruit[$i] != "") {
-            $length++;
-            $i++;
-        }
-        if ($fruit[$i] == "") {
-            break;
-        }
-    }
-    $k = $length - 1;
-    while (true) {
-        if ($fruit[$k] != "") {
-            $flippedFruits[] = $fruit[$k];
-            $k--;
-        }
-        if ($fruit[$k] == "") {
-            
-            $flippedFruits[] = " ";
-            break;
-        }
-    }
+    print_r($flippedFruits);
 }
-var_dump($flippedFruits);
+
 //        $char = $fruit[$i];
 //        if ($char != "") {
 //            $n = 0;
@@ -93,38 +101,87 @@ function fib($n)
 
     }
 
+    $i = 1;
     foreach ($tab as $key => $value) {
         if ($value % 2 == 0) {
-            echo("1. " . $value . "\n");
+            echo($i . ". " . $value . "\n");
+            $i++;
         }
     }
 }
-/*
+
 //Zad 4 Tablica z tekstu
-$var = "Lorem. Ipsum. is. simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+echo "\nTablica z tekstu\n";
+arrayFunction();
+//TODO ROZLACZANIE I PRZYLACZANIE
+function arrayFunction()
+{
+    $var = "Lorem. Ipsum. is. simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
  galley of type and scrambled it to make a type specimen book. It has survived not only five
  centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
  popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
  and more recently with desktop publishing software like Aldus PageMaker including versions of
  Lorem Ipsum.";
 
-$array = explode(" ", $var);
-foreach ($array as $key => $value) {
-    $i = 0;
-    while (true) {
-        $v = $value;
-        $char = $v[$i];
-        if ($char == "." || ",") {
-            echo "teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
+
+    $array = explode(" ", $var);
+    foreach ($array as $arr) {
+        $newArr = "";
+        $length = 0;
+        while (true) {
+            if ($arr[$length] == "") {
+                break;
+            }
+            $length++;
         }
-        $i++;
-        if ($char == "") {
-            break;
+        $i = 0;
+        for ($j = $i; $j < $length; $j++) {
+            if ($j = $length) {
+                for ($k = 0; $k < $j; $k++) {
+                    if ($arr[$k] == "." || $arr[$k] == ",") {
+                        break;
+                    }
+                    $newArr .= $arr[$k];
+                }
+                $connectedArr[] = $newArr;
+            }
         }
+
     }
+    for ($i = 0; $i < count($connectedArr) - 1; $i++) {
+        $finalArray[$connectedArr[$i]] = $connectedArr[$i += 1];
+    }
+    print_r($finalArray);
 }
-print_r($array);
-*/
 
+//
+//$j = $var.count();
+//while (true) {
+//    $array[] = $var[0];
+//    if ($var[$i] == "") {
+//    }
+//}
+//print_r($array);
+////foreach ($array as $key => $value) {
+////    $i = 0;
+////    while (true) {
+////        $v = $value;
+////        $char[] = $v[$i];
+////        if ($char == "." || ",") {
+////
+////        }
+////        $i++;
+////        if ($char == "") {
+////            break;
+////        }
+////    }
+////}
 
-
+////$array = explode(" ", $var);
+//
+//
+//
+//
+//
+//
+//
