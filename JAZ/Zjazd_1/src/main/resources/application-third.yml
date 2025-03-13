@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: Zjazd_1
+  third:
+    custom:
+      property: false
