@@ -2,23 +2,37 @@
 //Zad 1 - Tablica owoców
 $fruits = array("Orange", "Pomegranate", "Banana");
 
-$firstFruit[] = array($fruits[0]);
-$secondFruit[] = $fruits[1];
-$thirdFruit[] = $fruits[2];
-
 foreach ($fruits as $fruit) {
     $firstLetter = $fruit[0];
     if ($firstLetter === "P") {
         echo "First letter of " . $fruit . " is P";
     }
+    $firstLetter;
+    $i = 0;
     $length = 0;
-    $newWord =
-    while (true) {
-        $i = 0;
-        if ($length === $fruit[$i]){
-
+    while (true) {          // Sprawdzanie długości
+        if ($fruit[$i] != "") {
+            $length++;
+            $i++;
         }
-
+        if ($fruit[$i] == "") {
+            break;
+        }
+    }
+    $k = $length - 1;
+    while (true) {
+        if ($fruit[$k] != "") {
+            $flippedFruits[] = $fruit[$k];
+            $k--;
+        }
+        if ($fruit[$k] == "") {
+            
+            $flippedFruits[] = " ";
+            break;
+        }
+    }
+}
+var_dump($flippedFruits);
 //        $char = $fruit[$i];
 //        if ($char != "") {
 //            $n = 0;
@@ -29,9 +43,9 @@ foreach ($fruits as $fruit) {
 //        if ($char == "") {
 //            break;
 //        }
-    }
-    print_r($newArray);
-}
+//
+//    print_r($newArray);
+//}
 
 
 echo "\n\n";
