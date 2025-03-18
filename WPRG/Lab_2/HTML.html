@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zjazd 2</title>
+</head>
+<body>
+<div class="calculator" , id="calculator">
+    <form>
+        <label for="firstVar"></label><input type="text" id="firstVar" class="var" name="firstNumber"><br>
+        <label for="secondVar"></label><input type="" id="secondVar" class="var" name="secondNumber"><br>
+        <label for="result"></label><input type="" id="result" class="var" name="result"><br><br>
+    </form>
+    <div class="math" , id="math">
+        <input type="submit" id="calculate" value="=">
+        <input type="reset" id="reset" value="CLS">
+        <input type="submit" id="divide" value="/">
+        <input type="submit" id="multiply" value="*">
+        <input type="submit" id="subtract" value="-">
+        <input type="submit" id="add" value="+">
+    </div>
+</div>
+<div class="hotelReservation" id="hotelReservation">
+    <br><br>
+    <form class="reservationSystem">
+        <select id="chooseGuest" class="list" name="chooseGuest">
+            <option value="1">Guest 1</option>
+            <option value="2">Guest 2</option>
+            <option value="3">Guest 3</option>
+            <option value="3">Guest 4</option>
+        </select>
+
+        <br><input type="text" id="name" class="reservationButton" name="name" placeholder="Name" data-list="abc"><br>
+        <input type="text" id="lastName" class="reservationButton" name="lastName" placeholder="Last Name"><br>
+        <input type="date" id="checkIn" class="reservationButton" name="checkIn" placeholder="Check In">
+        <input type="date" id="checkOut" class="reservationButton" name="checkOut" placeholder="Check Out"><br>
+        <input type="number" id="number" class="reservationButton" name="number" placeholder="Phone Number"><br>
+        <input type="email" id="email" class="reservationButton" name="email" placeholder="Email address"><br>
+        <input type="checkbox" id="bedForChild" class="reservationCheckBox" name="bedForChild"
+               placeholder="Additional Bed For Child">
+        <a>Additional bed for child</a><br>
+        <label for="roomType"></label><select id="roomType" class="list" name="roomType">
+        <option value="DBL">DBL</option>
+        <option value="TWIN">TWIN</option>
+        <option value="APARTMENT">APARTMENT</option>
+        <option value="Studio">STUDIO</option>
+    </select>
+        <br>
+        <label for="additionsList"></label><select multiple id="additionsList" class="list" name="additionsList">
+        <option value="1">Additional </option>
+        <option value="1">abcede</option>
+        <option value="1">abcede</option>
+        <option value="1">abcde</option>
+    </select>
+        <br>
+        <button type="submit" id="submit" class="reservationButton" name="submit">Submit</button>
+    </form>
+</div>
+<div id="primeNumbersCheck">
+<input type="number" id="primeNumber" class="primeNumber" placeholder="Prime Number">
+
+</div>
+</body>
+</html>
