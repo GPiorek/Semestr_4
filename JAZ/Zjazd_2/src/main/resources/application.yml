@@ -1,5 +1,13 @@
-custom:
-  login: test-login
-  credentials:
-    user: test-user
-    password: test-pass
+#custom:
+#  login: test-login
+#  credentials:
+#    user: test-user
+#    password: pass
+#spring:
+#  main:
+#    banner-mode: off
+#  profiles:
+#    active: qa
+#logging:
+#  level:
+#    root: off
