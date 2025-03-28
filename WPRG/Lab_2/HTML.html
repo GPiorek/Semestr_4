@@ -6,57 +6,79 @@
     <link rel="stylesheet" href="Stylesheet.css">
 </head>
 <body>
-<div class="calculator" , id="calculator">
-    <div class="math" , id="math">
-        <input type="text" id="firstVar" class="var" name="firstNumber">
-        <input type="text" id="secondVar" class="var" name="secondNumber">
-        <input type="button" class="button" , id="subtract" value="-">
-        <input type="button" class="button" , id="add" value="+">
-        <input type="button" class="button" , id="divide" value="/">
-        <input type="button" class="button" , id="multiply" value="*">
-        <input type="button" class="button" , id="reset" value="C">
-        <input type="button" class="button" , id="calculate" value="=">
-    </div>
+<div class="calculator" id="calculator">
+    <form action="PhpScripts/Calculator.php" method="post">
+        <div class="math" id="math">
+            <input type="text" id="firstVar" class="var" name="firstNumber" required>
+            <input type="text" id="secondVar" class="var" name="secondNumber" required>
+            <input type="submit" class="button" id="subtract" name="operation" value="-">
+            <input type="submit" class="button" id="add" name="operation" value="+">
+            <input type="submit" class="button" id="divide" name="operation" value="/">
+            <input type="submit" class="button" id="multiply" name="operation" value="*">
+        </div>
+    </form>
     <input type="text" class="result" name="result" value="">
+    <!--placeholder for result, for now result will appear in new windows -->
+
+
 </div>
 <div class="hotelReservation" id="hotelReservation">
-    <br><br>
-    <form class="reservationSystem">
-        <select id="chooseGuest" class="list" name="chooseGuest">
-            <option value="1">Guest 1</option>
-            <option value="2">Guest 2</option>
-            <option value="3">Guest 3</option>
-            <option value="3">Guest 4</option>
+    <div class="row" id="leftRow">
+        <form class="reservationSystem" action="PhpScripts/HotelReservation.php" method="post">
+            <input type="text" id="name" class="reservationButton" name="name" placeholder="Name" data-list="abc"
+                   required><br>
+            <input type="text" id="lastName" class="reservationButton" name="lastName" placeholder="Last Name" required><br>
+            <select id="numberOfGuests" class="numberOfGuests" name="numberOfGuests" required>
+                <option value="n">Number of guests</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <input type="phoneNumber" id="phoneNumber" class="reservationButton" name="phoneNumber" placeholder="Phone Number"
+                   minlength="9" maxlength="9"><br>
+            <input type="email" id="email" class="reservationButton" name="email" placeholder="Email address"
+                   required><br>
+            <input type="checkbox" id="bedForChild" class="reservationCheckBox" name="bedForChild"
+                   placeholder="Additional Bed For Child">
+            <a>Additional bed for child</a><br>
+            <label for="roomType"></label><select id="roomType" class="list" name="roomType" required>
+            <option value="RoomType">Room Type</option>
+            <option value="DBL">DBL</option>
+            <option value="TWIN">TWIN</option>
+            <option value="APARTMENT">APARTMENT</option>
+            <option value="Studio">STUDIO</option>
         </select>
-
-        <br><input type="text" id="name" class="reservationButton" name="name" placeholder="Name" data-list="abc"><br>
-        <input type="text" id="lastName" class="reservationButton" name="lastName" placeholder="Last Name"><br>
-        <input type="date" id="checkIn" class="reservationButton" name="checkIn" placeholder="Check In">
-        <input type="date" id="checkOut" class="reservationButton" name="checkOut" placeholder="Check Out"><br>
-        <input type="number" id="number" class="reservationButton" name="number" placeholder="Phone Number"><br>
-        <input type="email" id="email" class="reservationButton" name="email" placeholder="Email address"><br>
-        <input type="checkbox" id="bedForChild" class="reservationCheckBox" name="bedForChild"
-               placeholder="Additional Bed For Child">
-        <a>Additional bed for child</a><br>
-        <label for="roomType"></label><select id="roomType" class="list" name="roomType">
-        <option value="DBL">DBL</option>
-        <option value="TWIN">TWIN</option>
-        <option value="APARTMENT">APARTMENT</option>
-        <option value="Studio">STUDIO</option>
-    </select>
-        <br>
-        <label for="additionsList"></label><select multiple id="additionsList" class="list" name="additionsList">
-        <option value="1">Additional</option>
-        <option value="1">abcede</option>
-        <option value="1">abcede</option>
-        <option value="1">abcde</option>
-    </select>
-        <br>
-        <button type="submit" id="submit" class="reservationButton" name="submit">Submit</button>
+            <br>
+            <label for="additionsList"></label><select multiple id="additionsList" class="list" name="additionsList">
+            <option value="1">Additional</option>
+            <option value="1">abcede</option>
+            <option value="1">abcede</option>
+            <option value="1">abcde</option>
+        </select>
+            <br>
+    </div>
+    <div class="row" id="rightRow">
+        <a>Check-In</a><br>
+        <input type="date" id="checkIn" class="reservationButton" name="checkIn" placeholder="Check In" required><br>
+        <a>Check-Out</a><br>
+        <input type="date" id="checkOut" class="reservationButton" name="checkOut" placeholder="Check Out" required>
+        <input type="text" class="creditCard" id="creditCardNumber" name="creditCardNumber" placeholder="Card Number">
+        <input type="text" class="creditCard" id="creditCardCode" name="creditCardCode" placeholder="CVC">
+        <input type="text" class="creditCard" id="creditCardExpiry" name="creditCardExpiry" placeholder="Expiry Date">
+        <div id="submitButton" class="submitButton">
+            <button type="submit" id="submitReservation" class="submitReservation" name="submit">Submit</button>
+        </div>
+    </div>
     </form>
 </div>
-<div id="primeNumbersCheck">
+
+</div>
+
+
+<div id="primeNumbersCheck" class="primeNumbersCheck">
     <input type="number" id="primeNumber" class="primeNumber" placeholder="Prime Number">
+
 
 </div>
 </body>
