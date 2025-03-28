@@ -98,9 +98,15 @@ html{
 
 }
 
-#chooseGuest, #additionsList, #roomType {
+#chooseGuest, #email, #name, #lastName, #phoneNumber {
     width: 100%;
 }
+
+#numberOfGuests, #roomType, #additionsList{
+    width: 105%;
+}
+
+
 
 #checkIn, #checkOut {
     width: 50%;
@@ -121,6 +127,15 @@ html{
 
 }
 
+#bedForChildInfo{
+    font-size: 3vh;
+}
+
+.submitReservation{
+    margin-top: 3vh;
+
+}
+
 /*Prime number check*/
 
 .primeNumbersCheck{
@@ -134,6 +149,24 @@ html{
     
 }
 
-.primeNumber{
-    height: 15px;
+.inputPrimeNumber{
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 10px;
+    width: 40vh;
+    height: 20vh;
+    text-align: center;
+    font-size: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+#pInputPrime{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh;
+}
+
+

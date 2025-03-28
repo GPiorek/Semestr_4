@@ -20,7 +20,6 @@
     <input type="text" class="result" name="result" value="">
     <!--placeholder for result, for now result will appear in new windows -->
 
-
 </div>
 <div class="hotelReservation" id="hotelReservation">
     <div class="row" id="leftRow">
@@ -41,7 +40,7 @@
                    required><br>
             <input type="checkbox" id="bedForChild" class="reservationCheckBox" name="bedForChild"
                    placeholder="Additional Bed For Child">
-            <a>Additional bed for child</a><br>
+            <a id="bedForChildInfo">Additional bed for child</a><br>
             <label for="roomType"></label><select id="roomType" class="list" name="roomType" required>
             <option value="RoomType">Room Type</option>
             <option value="DBL">DBL</option>
@@ -51,10 +50,10 @@
         </select>
             <br>
             <label for="additionsList"></label><select multiple id="additionsList" class="list" name="additionsList">
-            <option value="1">Additional</option>
-            <option value="1">abcede</option>
-            <option value="1">abcede</option>
-            <option value="1">abcde</option>
+            <option value="1">Hotel credit</option>
+            <option value="1">Puppy</option>
+            <option value="1">White wine in room</option>
+            <option value="1">Red wine in room</option>
         </select>
             <br>
     </div>
@@ -78,7 +77,8 @@
 
 <div id="primeNumbersCheck" class="primeNumbersCheck">
     <form action="PhpScripts/PrimeNumbers.php" method="post">
-    <input type="number" id="inputPrimeNumber" class="inputPrimeNumber" name="inputPrimeNumber" placeholder="Prime Number" required>
+        <p id="pInputPrime">Enter number to check if its prime</p>
+    <input type="number" id="inputPrimeNumber" class="inputPrimeNumber" name="inputPrimeNumber" placeholder="" required>
     </form>
 
 </div>
