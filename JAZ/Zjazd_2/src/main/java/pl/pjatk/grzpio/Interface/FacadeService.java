@@ -25,11 +25,11 @@ public class FacadeService {
         stringHandlerServiceInterfaceMap.put("prod", prodService);
         stringHandlerServiceInterfaceMap.put("dev", devService);
         stringHandlerServiceInterfaceMap.put("staging", stagingService);
-//        stringHandlerServiceInterfaceMap.forEach((k, v) -> {
-//            if (enviroment.equals(k)) {
-//             String enviromentMessage = k;
-//            }
-//        });
+        stringHandlerServiceInterfaceMap.forEach((k, v) -> {
+            if (enviroment.equals(k)) {
+             String enviromentMessage = k;
+            }
+        });
     }
 }
 
