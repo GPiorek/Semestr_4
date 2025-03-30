@@ -5,7 +5,6 @@ $numberOfGuests = $_POST['numberOfGuests'];
 $phoneNumber = $_POST['phoneNumber'];
 $email = $_POST['email'];
 $roomType = $_POST['roomType'];
-$additionsList = $_POST['additionsList'] ?? [];
 $checkIn = $_POST['checkIn'];
 $checkOut = $_POST['checkOut'];
 $creditCardNumber = $_POST['creditCardNumber'];
@@ -47,9 +46,6 @@ $bedForChild = isset($_POST['bedForChild']) ? "Yes" : "No";
                 Room Type
             </td>
             <td>
-                Additions
-            </td>
-            <td>
                 Check-In
             </td>
             <td>
@@ -86,9 +82,6 @@ $bedForChild = isset($_POST['bedForChild']) ? "Yes" : "No";
             </td>
             <td>
                 <?php echo $roomType ?>
-            </td>
-            <td>
-                 <?php echo $additionsList ?>
             </td>
             <td>
                 <?php echo $checkIn ?>
