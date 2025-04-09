@@ -2,7 +2,7 @@ package pl.pjatk.grzpio.Model;
 
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
+
 public class Car {
     int mileage;
     String model;
