@@ -1,4 +1,4 @@
-package pl.pjatk.grzpio;
+package pl.pjatk.grzpio.Config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

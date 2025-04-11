@@ -1,6 +1,7 @@
 package pl.pjatk.grzpio;
 
 import org.springframework.stereotype.Component;
+import pl.pjatk.grzpio.Config.Config;
 
 @Component
 public class FirstClass {
