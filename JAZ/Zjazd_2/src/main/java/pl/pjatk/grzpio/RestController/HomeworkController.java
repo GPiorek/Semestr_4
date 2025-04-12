@@ -8,13 +8,11 @@ import pl.pjatk.grzpio.HomeworkEntity;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/homework")
 public class HomeworkController {
 
     private final CarService carService;
-
     public HomeworkController(CarService carService) {
         this.carService = carService;
     }
@@ -35,7 +33,7 @@ public class HomeworkController {
     }
 
     @PostMapping("/AddCar")
-    public ResponseEntity<Object> addCar(@RequestBody Car car) {
+    public ResponseEntity<Car> addCar(@RequestBody Car car) {
         carService.addCar(car);
         return ResponseEntity.ok(car);
     }
@@ -50,5 +48,10 @@ public class HomeworkController {
         carService.removeCar(id);
     }
 
-
+    @GetMapping("/hello/ex")
+    public ResponseEntity<String> exception(){
+        throw new RuntimeException("First exercise");
+    }
 }
+
+

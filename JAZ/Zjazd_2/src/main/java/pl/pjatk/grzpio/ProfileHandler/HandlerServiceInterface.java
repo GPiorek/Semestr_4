@@ -1,4 +1,4 @@
-package pl.pjatk.grzpio.Interface;
+package pl.pjatk.grzpio.ProfileHandler;
 
 public interface HandlerServiceInterface {
     void helloMessage();
