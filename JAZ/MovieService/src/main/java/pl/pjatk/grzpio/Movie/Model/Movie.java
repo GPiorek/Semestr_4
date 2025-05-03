@@ -1,6 +1,7 @@
 package pl.pjatk.grzpio.Movie.Model;
 
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -11,7 +12,7 @@ import pl.pjatk.grzpio.FilmCategory;
 @Getter
 @Setter
 
-@Component
+@Entity
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

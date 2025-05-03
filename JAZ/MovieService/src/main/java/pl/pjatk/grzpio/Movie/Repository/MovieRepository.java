@@ -11,10 +11,11 @@ public class MovieRepository {
     private List<Movie> movies;
 
     public MovieRepository(List<Movie> movies) {
-        this.movies = movies;
+        this.movies = createRepository();
     }
 
-    private List<Movie> addMovie(){
-        Movie DeathInVenice = new Movie();
+    
+
+    public List<Movie> createRepository(){
     }
 }
