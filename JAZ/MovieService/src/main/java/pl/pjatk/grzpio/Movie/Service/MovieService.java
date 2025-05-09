@@ -1,6 +1,5 @@
 package pl.pjatk.grzpio.Movie.Service;
 
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.pjatk.grzpio.Movie.Model.Movie;
 import pl.pjatk.grzpio.Movie.Repository.MovieRepository;
@@ -31,6 +30,7 @@ public class MovieService {
     }
 
     public void addMovie(Movie movie) {
+
         movieRepository.save(movie);
     }
 

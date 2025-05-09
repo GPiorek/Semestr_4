@@ -14,12 +14,10 @@ import java.util.List;
 public class RestController {
 
     private final MovieService movieService;
-    private final MovieRepository movieRepository;
 
 
     public RestController(MovieService movieService, MovieRepository movieRepository) {
         this.movieService = movieService;
-        this.movieRepository = movieRepository;
     }
 
     @GetMapping()
@@ -29,7 +27,13 @@ public class RestController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Movie> getMovie(@PathVariable int id) {
-        return ResponseEntity.ok(movieService.getMovieById(id));
+//        return ResponseEntity.ok(movieService.getMovieById(id));
+        if (movieService.getMovieById(id) != null) {
+            return ResponseEntity.ok(movieService.getMovieById(id));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+
     }
 
     @PostMapping
@@ -50,7 +54,12 @@ public class RestController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteMovie(@PathVariable int id) {
-        movieService.deleteMovie(id);
-        return ResponseEntity.noContent().build();
+        if (movieService.checkIfMovieExists(id)) {
+            movieService.deleteMovie(id);
+            return ResponseEntity.noContent().build();
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+
     }
 }

@@ -14,7 +14,8 @@ public enum MovieCategory {
     DOCUMENTAL,
     HISTORIC,
     FAMILY,
-    ACTION;
+    ACTION,
+    MAFIA;
 
     MovieCategory() {
     }
