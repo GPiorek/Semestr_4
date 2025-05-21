@@ -9,11 +9,9 @@ import java.util.List;
 @Service
 public class MovieService {
 
-    private final Movie movie;
     private MovieRepository movieRepository;
 
-    public MovieService(Movie movie, MovieRepository movieRepository) {
-        this.movie = movie;
+    public MovieService(MovieRepository movieRepository) {
         this.movieRepository = movieRepository;
     }
 
@@ -43,15 +41,6 @@ public class MovieService {
         movieRepository.deleteById(id);
     }
 
-    public Movie updateMovie(int id, Movie movie) {
-        movieRepository.findById(id);
-        if (movie.getId() != id) {
-            return null;
-        } else {
-            movieRepository.deleteById(id);
-            return movieRepository.save(movie);
-        }
-    }
-
 
 }
+//TODO API MODEL SERVICE

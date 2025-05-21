@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import pl.pjatk.grzpio.Movie.Enum.MovieCategory;
 import pl.pjatk.grzpio.Movie.Enum.Pegi;
 
-@Component
 @Entity
 @Getter
 @Setter

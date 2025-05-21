@@ -11,12 +11,12 @@ import java.util.List;
 //todo exceptions jak w zadaniach
 @RequestMapping("/movies")
 @org.springframework.web.bind.annotation.RestController
-public class RestController {
+public class MovieRestController {
 
     private final MovieService movieService;
 
 
-    public RestController(MovieService movieService, MovieRepository movieRepository) {
+    public MovieRestController(MovieService movieService, MovieRepository movieRepository) {
         this.movieService = movieService;
     }
 
