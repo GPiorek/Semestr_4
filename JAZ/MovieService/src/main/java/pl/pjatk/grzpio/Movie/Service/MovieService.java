@@ -41,6 +41,10 @@ public class MovieService {
         movieRepository.deleteById(id);
     }
 
+    public void updateAvailability(Movie movie) {
+        movie.setAvailable(true);
+        movieRepository.save(movie);
+    }
 
 }
 //TODO API MODEL SERVICE

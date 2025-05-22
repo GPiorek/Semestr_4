@@ -1,6 +1,7 @@
 package pl.pjatk.grzpio.Movie.Model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
@@ -25,6 +26,8 @@ public class Movie {
     private Pegi pegi;
     private int yearOfRelease;
     private double duration;
+    @NonNull
+    private boolean isAvailable = false;
 
 
 }

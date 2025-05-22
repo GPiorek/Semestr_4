@@ -14,26 +14,31 @@ import java.util.List;
 public class MovieRestController {
 
     private final MovieService movieService;
-
+    private final MovieRepository movieRepository;
 
     public MovieRestController(MovieService movieService, MovieRepository movieRepository) {
         this.movieService = movieService;
+        this.movieRepository = movieRepository;
     }
 
     @GetMapping()
     public ResponseEntity<List<Movie>> getMovies() {
-        return ResponseEntity.ok(movieService.getAllMovies());
+        return ResponseEntity.ok(movieRepository.findAllBy());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Movie> getMovie(@PathVariable int id) {
 //        return ResponseEntity.ok(movieService.getMovieById(id));
-        if (movieService.getMovieById(id) != null) {
-            return ResponseEntity.ok(movieService.getMovieById(id));
+//        if (movieService.getMovieById(id) != null) {
+//            return ResponseEntity.ok(movieService.getMovieById(id));
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+        if (movieRepository.findMovieById(id) != null) {
+            return ResponseEntity.ok(movieRepository.findMovieById(id));
         } else {
             return ResponseEntity.notFound().build();
         }
-
     }
 
     @PostMapping
@@ -44,7 +49,7 @@ public class MovieRestController {
 
     @PutMapping("{id}") //TODO DO POPRAWY
     public ResponseEntity<Movie> updateMovie(@PathVariable int id, @RequestBody Movie movie) {
-        if (movieService.checkIfMovieExists(id)) {
+        if (movieRepository.existsById(id)) {
             movieService.addMovieWithId(id, movie);
             return ResponseEntity.ok(movie);
         } else {
@@ -54,12 +59,20 @@ public class MovieRestController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteMovie(@PathVariable int id) {
-        if (movieService.checkIfMovieExists(id)) {
-            movieService.deleteMovie(id);
+        if (movieRepository.existsMovieById(id)) {
+            movieRepository.deleteById(id);
             return ResponseEntity.noContent().build();
-        }else{
+        } else {
             return ResponseEntity.notFound().build();
         }
+    }
 
+    @PatchMapping("/setAvailability/{id}")
+    public ResponseEntity<Movie> setTrueAvailability(@PathVariable int id) {
+        if (movieRepository.existsMovieById(id)) {
+            movieService.updateAvailability(movieService.getMovieById(id));
+            return ResponseEntity.ok().build();
+        }else
+            return ResponseEntity.notFound().build();
     }
 }
