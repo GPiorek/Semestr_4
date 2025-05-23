@@ -1,0 +1,112 @@
+enable - entering priveleged exec mode also called enable mode (#)
+disable - return to user EXEC mode (>)
+configure terminal - entering global configuration (config)
+#interface vlan 1 - entering interface configuration mode (config-if)
+exit - or ctrl+z - or end - return to priveleged exec mode (#)
+#line console 0 - entering (config-line)
+? - return a commands that are available in actual mode where u are 
+ctrl+shift+6 - stopping "translating" when bad typed 
+#hostname XYZ - in config mode to set name 
+no hostname - To return the switch to the default prompt
+show running-config - to check if passwords are encrypted
+copy running-config startup-config - In privileged EXEC mode, saving config files from startup-config to running-config
+reload - restores startup-config 
+erase startup-config - 
+show ip interface brief - shows conditio of switch interfaces
+------------------------------------
+SETTING PASSWORD TO USER EXEC
+Sw-Floor-1(config-line)# password XXX
+Sw-Floor-1(config-line)# login
+Sw-Floor-1(config-line)# end
+SETTING PASSWORD TO PRIVILEGED EXEC ACCESS
+Sw-Floor-1# configure terminal
+Sw-Floor-1(config)# enable secret XXX
+Sw-Floor-1(config)# exit
+SETTING PASSWORD TO VTY 
+Sw-Floor-1# configure terminal
+Sw-Floor-1(config)# line vty 0 15
+Sw-Floor-1(config-line)# password XXX
+Sw-Floor-1(config-line)# login
+Sw-Floor-1(config-line)# end
+ENCRYPTING PASSWORDS 
+Sw-Floor-1# configure terminal
+Sw-Floor-1(config)# service password-encryption
+Sw-Floor-1(config)#
+-------------------------------------------------------
+SETTING BANNER
+Sw-Floor-1# configure terminal
+Sw-Floor-1(config)# banner motd #Authorized Access Only#
+VIRTUAL INTERFACE SVI CONFIGURATION
+Sw-Floor-1# configure terminal
+Sw-Floor-1(config)# interface vlan 1
+Sw-Floor-1(config-if)# ip address 192.168.1.20 255.255.255.0
+Sw-Floor-1(config-if)# no shutdown
+Sw-Floor-1(config-if)# exit
+Sw-Floor-1(config)# ip default-gateway 192.168.1.1
+CONFIGURING VIRTUAL INTERFACE
+Sw-Floor-1# configure terminal
+Sw-Floor-1(config)# interface vlan 1
+Sw-Floor-1(config-if)# ip address 192.168.1.20 255.255.255.0
+Sw-Floor-1(config-if)# no shutdown
+Sw-Floor-1(config-if)# exit
+Sw-Floor-1(config)# ip default-gateway 192.168.1.1
+
+2.3.7
+-Connected PC1 (RS232) with S1 (Console) by console wiring to provide access to console
+-Typed "ENABLE" "SHOW CLOCK" "clock set 15:00:00 31 Jan 2035"
+
+
+2.3.8
+-Moved switch to rack and pc to table, turned on pc
+-Connected PC(rs323) interface with switch console port 
+-"clock set 15:28:00 Nov 11 2020"
+-Connected laptop usb with switch usb
+
+2.5.5
+-typed "ENABLE", "SHOW RUNNING-CONFIG"
+-Changed hostname by "Configuration terminal" "Hostname S1"
+-changed password to user mode "configure terminal" "line console 0" "password letmein" "login" "exit"
+-Changed password to privieleged mode by "enable password c!$c0" 
+-Changed "enable secret itsasecret"
+-Changed "config t" "service password-ecryption"
+-Setted message to "banner motd #This is a secure system. Authorized Access Only#"
+-Saved chenges to start-config "copy run start"
+
+2.7.6
+-Setted password "enable" "config t" "Hostname S1"
+-Setted password to cisco "line console 0" "password cisco" "login" "exit"
+-Setter password for privieleged mode "enable secret class" 
+-Setted banner "#banner motd #Authorized access only. Violators will be prosecuted to the full extent of the law.#"
+-Saved conf file "copy run start"
+-Same for S2
+-Set ping for S1 "enable" "configure t" "interface vlan 1" "ping 192.168.1.253 255.255.255.0" "no shutdown"
+-Same for S2
+-Set ip, and subnet for pcs in ip config
+-Verify adressess "Show ip interface brief"
+-save config "copy run start"
+-ping every device
+
+2.9.1
+-Setted ip address to pcs as there is in adressing table
+-entered terminal in pc-1 -> "enable" 
+-Setted password "config t" "hostname SW-01" "line console 0" "password xAw6k" "login" "exit"
+-Setted password for privelege "enable secret 6EBUp"
+-Encrypted passwords "service password-encryption"
+-Setted motd "banner motd #Authorized Access Only#
+-Setted ip address and subnet mask "interface vlan 1" "ip address 10.10.10.100 255.255.255.0" "no shutdown"
+-Saved by "copy run start"
+
+2.9.2
+-Powered up pcs, Connected console cables as the topology Pc-1(RS232) with S1(Console) and PC-2(RS232) with S2(Console)
+-Connected copper cable as the topology, connected f0/1 on both switches with themselves
+-connected copper cable F0/6 on switch-1 with Fast Ethernet on pc-1 and f0/18 on sw-2 with fast Ethernet on fast Ethernet pc-2
+-Setted ip address and mask on both pcs in ip configuration 
+-Setted ip address for switches -> terminal -> "enable" "config t" "interface vlan 1" "ip address 192.168.1.1 255.255.255.0" "no shutdown"
+-Setted hostname in config t mode "hostname S1" 
+-Setted passwords "line console 0" "password cisco" "login" "exit" "enable secret class" "exit"
+-Setted motd "banner motd #hello hacker#"
+-"copy run start"
+
+
+3.5.5
+-Clicked simulation buton, selected hhtp, opened web browse at web client, typed  www.osi.local, clicked capture/forward buton 4 times
