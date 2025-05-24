@@ -16,7 +16,6 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
 
     boolean existsMovieById(int id);
 
-    void deleteMovieById(int id);
 
 
 }

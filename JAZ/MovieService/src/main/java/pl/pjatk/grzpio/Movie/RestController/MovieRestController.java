@@ -10,7 +10,7 @@ import java.util.List;
 
 //todo exceptions jak w zadaniach
 @RequestMapping("/movies")
-@org.springframework.web.bind.annotation.RestController
+@RestController
 public class MovieRestController {
 
     private final MovieService movieService;
