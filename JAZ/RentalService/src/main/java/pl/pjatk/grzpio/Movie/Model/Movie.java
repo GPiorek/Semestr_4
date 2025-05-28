@@ -1,7 +1,9 @@
 package pl.pjatk.grzpio.Movie.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import pl.pjatk.grzpio.Movie.Enum.MovieCategory;
 import pl.pjatk.grzpio.Movie.Enum.Pegi;
 

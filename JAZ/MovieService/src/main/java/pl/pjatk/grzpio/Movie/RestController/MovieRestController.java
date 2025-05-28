@@ -67,12 +67,23 @@ public class MovieRestController {
         }
     }
 
-    @PatchMapping("/setAvailability/{id}")
-    public ResponseEntity<Movie> setTrueAvailability(@PathVariable int id) {
+    @PostMapping("/setAvailabilityTrue/{id}")
+    public ResponseEntity<Movie> setAvailabilityTrue(@PathVariable int id) {
         if (movieRepository.existsMovieById(id)) {
-            movieService.updateAvailability(movieService.getMovieById(id));
+            movieService.setAvailabilityTrue(movieService.getMovieById(id));
+            return ResponseEntity.ok().build();
+        } else
+            return ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("/setAvailabilityFalse/{id}")
+    public ResponseEntity<Movie> setAvailabilityFalse(@PathVariable int id) {
+        if (movieRepository.existsMovieById(id)) {
+            movieService.setAvailabilityFalse(movieService.getMovieById(id));
             return ResponseEntity.ok().build();
         }else
             return ResponseEntity.notFound().build();
     }
 }
+
+

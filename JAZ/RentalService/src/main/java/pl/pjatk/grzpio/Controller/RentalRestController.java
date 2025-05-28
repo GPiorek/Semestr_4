@@ -1,10 +1,7 @@
 package pl.pjatk.grzpio.Controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.pjatk.grzpio.Movie.Model.Movie;
 import pl.pjatk.grzpio.RentalService;
 
@@ -19,8 +16,17 @@ public class RentalRestController {
     }
 
     @GetMapping("/getMovie/{id}")
-    public ResponseEntity<Movie> getMovieById(@PathVariable int id) {;
+    public ResponseEntity<Movie> getMovieById(@PathVariable int id) {
         return ResponseEntity.ok(rentalService.getMovieFromMovieService(id));
     }
 
+    @PostMapping("/setMovieAvailabilityTrue/{id}")
+    public void setMovieAvailabilityTrue(@PathVariable int id) {
+        rentalService.setMovieAvailabilityTrue(id);
+    }
+
+    @PostMapping("/setMovieAvailabilityFalse/{id}")
+    public void setMovieAvailabilityFalse(@PathVariable int id) {
+        rentalService.setMovieAvailabilityFalse(id);
+    }
 }

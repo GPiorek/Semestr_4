@@ -41,10 +41,14 @@ public class MovieService {
         movieRepository.deleteById(id);
     }
 
-    public void updateAvailability(Movie movie) {
+    public void setAvailabilityTrue(Movie movie) {
         movie.setAvailable(true);
         movieRepository.save(movie);
     }
 
+    public void setAvailabilityFalse(Movie movie) {
+        movie.setAvailable(false);
+        movieRepository.save(movie);
+    }
 }
 //TODO API MODEL SERVICE
