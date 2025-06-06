@@ -1,6 +1,8 @@
 package pl.pjatk.grzpio.Movie.Service;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import pl.pjatk.grzpio.Movie.Model.Movie;
 import pl.pjatk.grzpio.Movie.Repository.MovieRepository;
 
@@ -10,9 +12,11 @@ import java.util.List;
 public class MovieService {
 
     private MovieRepository movieRepository;
+    private final RestTemplate restTemplate;
 
-    public MovieService(MovieRepository movieRepository) {
+    public MovieService(MovieRepository movieRepository, RestTemplate restTemplate) {
         this.movieRepository = movieRepository;
+        this.restTemplate = restTemplate;
     }
 
     public List<Movie> getAllMovies() {

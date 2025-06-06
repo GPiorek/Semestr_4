@@ -1,7 +1,9 @@
 package pl.pjatk.grzpio.Movie.RestController;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import pl.pjatk.grzpio.Movie.Model.Movie;
 import pl.pjatk.grzpio.Movie.Repository.MovieRepository;
 import pl.pjatk.grzpio.Movie.Service.MovieService;
@@ -15,14 +17,17 @@ public class MovieRestController {
 
     private final MovieService movieService;
     private final MovieRepository movieRepository;
+    private final RestTemplate restTemplate;
 
-    public MovieRestController(MovieService movieService, MovieRepository movieRepository) {
+    public MovieRestController(MovieService movieService, MovieRepository movieRepository, RestTemplate restTemplate) {
         this.movieService = movieService;
         this.movieRepository = movieRepository;
+        this.restTemplate = restTemplate;
     }
 
     @GetMapping()
     public ResponseEntity<List<Movie>> getMovies() {
+    sendStatus(HttpStatus.OK);
         return ResponseEntity.ok(movieRepository.findAllBy());
     }
 
@@ -41,11 +46,12 @@ public class MovieRestController {
         }
     }
 
-    @PostMapping
-    public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
-        movieService.addMovie(movie);
-        return ResponseEntity.ok(movie);
-    }
+        @PostMapping
+        public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
+            movieService.addMovie(movie);
+
+            return ResponseEntity.ok(movie);
+        }
 
     @PutMapping("{id}") //TODO DO POPRAWY
     public ResponseEntity<Movie> updateMovie(@PathVariable int id, @RequestBody Movie movie) {
@@ -75,4 +81,12 @@ public class MovieRestController {
         }else
             return ResponseEntity.notFound().build();
     }
+
+    @PostMapping("t")
+    public ResponseEntity<HttpStatus> sendStatus(@RequestBody HttpStatus status) {
+
+        restTemplate.postForEntity("http://localhost:8081/RentalService/statusHandler", status, HttpStatus.class);
+        return ResponseEntity.ok().build();
+    }
+
 }
